@@ -15,6 +15,12 @@
     <div class="col-8 m-auto pt-3 pb-2 text-center">
         <a href="form/" class="btn btn-sucess">Adicionar</a>
     </div>
+<!--
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <form method="get">
+            <input type="text" id="search" name="search" class="form-control" placeholder="Buscar">
+        </form>
+    </div>-->
 
     <div class="col-8 m-auto pt-4 pb-2 text-center">
         <table class="table">
@@ -43,6 +49,20 @@
           {% endfor %}
           </tbody>
         </table>
+    </div>
+
+    <div class="col-md-12" align="center">
+        {% if db.has_previous %}
+            <a href="?page={{ db.previous_page_number }}"> Anterior </a>
+        {% endif %}
+
+        <span class="current">
+            {{ db.number }} de {{ db.paginator.num_pages }}
+        </span>
+
+        {% if db.has_next %}
+            <a href="?page={{ db.next_page_number }}"> Próxima </a>
+        {% endif %}
     </div>
 
     {% load static %}
